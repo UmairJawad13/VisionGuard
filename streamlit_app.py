@@ -13,10 +13,19 @@ import sys
 import os
 
 # Add project root to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+project_root = os.path.dirname(os.path.abspath(__file__))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-from modules.navigator import Navigator
-from modules.reader import Reader
+# Import modules with error handling
+try:
+    from modules.navigator import Navigator
+    from modules.reader import Reader
+    MODULES_LOADED = True
+except ImportError as e:
+    st.error(f"Error loading modules: {e}")
+    st.info("Please ensure all required files are uploaded to GitHub")
+    MODULES_LOADED = False
 
 # Page configuration
 st.set_page_config(
@@ -69,6 +78,10 @@ st.markdown("""
 @st.cache_resource
 def load_models():
     """Load AI models (cached to avoid reloading)"""
+    if not MODULES_LOADED:
+        st.error("Cannot load models - modules import failed")
+        st.stop()
+        
     with st.spinner("Loading AI models... This may take a minute on first run."):
         navigator = Navigator(use_finetuned=False)
         reader = Reader()
