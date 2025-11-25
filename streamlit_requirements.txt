@@ -1,0 +1,23 @@
+# VisionGuard Web App Requirements (Streamlit)
+# Streamlined dependencies for web deployment
+
+# Web Framework
+streamlit>=1.28.0
+
+# Computer Vision & Deep Learning
+ultralytics>=8.0.0
+opencv-python-headless>=4.8.0  # Headless version for servers
+torch>=2.0.0
+torchvision>=0.15.0
+
+# OCR
+easyocr>=1.7.0
+
+# Image Processing
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# HTTP Requests (for LLaVA if needed)
+requests>=2.31.0
+
+# Note: Removed pyttsx3 and customtkinter (desktop-only packages)
