@@ -1,8 +1,7 @@
 # VisionGuard Requirements
 # Computer Vision Assistance for Visually Impaired Users
 
-# Core Dependencies
-python>=3.9
+
 
 # Computer Vision & Deep Learning
 ultralytics>=8.0.0
@@ -37,3 +36,4 @@ python-dotenv>=1.0.0
 
 # Optional: GPU acceleration (uncomment if using CUDA)
 # nvidia-ml-py3>=7.352.0
+
